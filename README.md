@@ -1,5 +1,17 @@
 ```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "CREATE TABLE tb1 (id INTEGER PRIMARY KEY, name TEXT, email TEXT)"}]}' http://localhost:12321/db1```
 
+cat /usr/bin/sqlite_web:
+```#!/bin/bash
+while true; do
+  if [ -e "$1" ]; then
+    sqliterg --db "$1"
+    break
+  else
+    sleep 1
+  fi
+done```
+
+
 # 🌿 Introduction
 
 > *This is a rewrite in Rust of [ws4sqlite](https://github.com/proofrock/ws4sqlite), 30-50% faster, 10x less memory used, more flexible in respect to sqlite support. It is not a direct rewrite, more like a "sane" (I hope) redesign. You can read more about what's changed and how to migrate [here](https://docs.sqliterg.dev/features/migrating-from-ws4sqlite).*
