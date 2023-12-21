@@ -3,7 +3,8 @@
 ```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "SELECT name FROM sqlite_schema WHERE type =\"table\""}]}' http://localhost:12321/db1```
 
 cat /usr/bin/sqlite_web:
-```#!/bin/bash
+```
+#!/bin/bash
 while true; do if [ -e "$1" ]; then sqliterg --db "$1"; else sleep 1; fi done
 ```
 
