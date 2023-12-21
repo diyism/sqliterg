@@ -1,8 +1,6 @@
-```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "CREATE TABLE tb1 (id INTEGER PRIMARY KEY, name TEXT, email TEXT)"}]}' http://localhost:12321/db1
-```
+```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "CREATE TABLE tb1 (id INTEGER PRIMARY KEY, name TEXT, email TEXT)"}]}' http://localhost:12321/db1```
 
-```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "SELECT name FROM sqlite_schema WHERE type =\"table\""}]}' http://localhost:12321/db1
-```
+```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "SELECT name FROM sqlite_schema WHERE type =\"table\""}]}' http://localhost:12321/db1```
 
 cat /usr/bin/sqlite_web:
 ```#!/bin/bash
