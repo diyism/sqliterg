@@ -2,14 +2,7 @@
 
 cat /usr/bin/sqlite_web:
 ```#!/bin/bash
-while true; do
-  if [ -e "$1" ]; then
-    sqliterg --db "$1"
-    break
-  else
-    sleep 1
-  fi
-done```
+while true; do if [ -e "$1" ]; then sqliterg --db "$1"; else sleep 1; fi done```
 
 
 # 🌿 Introduction
