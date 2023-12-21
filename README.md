@@ -1,6 +1,6 @@
-```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "CREATE TABLE tb1 (id INTEGER PRIMARY KEY, name TEXT, email TEXT)"}]}' http://localhost:12321/db1```
+```curl -u user1:pass1 -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "CREATE TABLE tb1 (id INTEGER PRIMARY KEY, name TEXT, email TEXT)"}]}' http://localhost:12321/db1```
 
-```curl -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "SELECT name FROM sqlite_schema WHERE type =\"table\""}]}' http://localhost:12321/db1```
+```curl -u user1:pass1 -X POST -H "Content-Type: application/json" -d '{"transaction": [{"query": "SELECT name FROM sqlite_schema WHERE type =\"table\""}]}' http://localhost:12321/db1```
 
 cat /usr/bin/sqlite_web:
 ```
@@ -8,6 +8,18 @@ cat /usr/bin/sqlite_web:
 while true; do if [ -e "$1" ]; then sqliterg --db "$1"; else sleep 1; fi done
 ```
 
+cat db1.yaml:
+```
+auth:
+  authErrorCode: 499
+  mode: HTTP_BASIC
+  byCredentials:
+    - user: user1
+      password: {{websql_pass}}
+journalMode: WAL
+readOnly: false
+corsOrigin: "*"
+```
 
 # 🌿 Introduction
 
